@@ -1,0 +1,61 @@
+/* styles.css */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrollbars */
+    height: 100vh;    /* Full viewport height */
+    width: 100vw;     /* Full viewport width */
+    background-color: #f0f0f0; /* Light gray background, matching your earlier preference */
+}
+
+.game-canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;  /* Keeps canvas fixed in place */
+    top: 0;
+    left: 0;
+}
+
+#health, #time, #score { /* Fixed your selector syntax */
+    position: fixed;  /* Stays visible over the canvas */
+    color: #333;      /* Dark gray for readability on light background */
+    font-family: Arial, sans-serif; /* Clean, simple font */
+    font-size: 1.2em; /* Slightly larger text */
+    padding: 5px;     /* Small padding for spacing */
+    z-index: 10;      /* Ensures text is above the canvas */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    border-radius: 3px; /* Slight rounding for a polished look */
+}
+
+#health {
+    top: 10px;
+    left: 10px;
+}
+
+#time {
+    top: 40px; /* Adjusted spacing for better stacking */
+    left: 10px;
+}
+
+#score {
+    top: 70px; /* Adjusted spacing for better stacking */
+    left: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #health, #time, #score {
+        font-size: 1em; /* Smaller text on mobile */
+        padding: 3px;   /* Reduced padding */
+    }
+
+    #time {
+        top: 35px; /* Tighter spacing on smaller screens */
+    }
+
+    #score {
+        top: 60px; /* Tighter spacing on smaller screens */
+    }
+}

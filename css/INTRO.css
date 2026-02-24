@@ -1,0 +1,60 @@
+/* INTRO.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Simple, clean font */
+    background-color: #f0f0f0; /* Plain light gray background */
+    display: flex;
+    flex-direction: column; /* Stack everything vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    min-height: 100vh; /* Full viewport height */
+    text-align: center; /* Center all text */
+}
+
+h1 {
+    color: #333; /* Dark gray for the heading */
+    font-size: 2em; /* Slightly smaller heading */
+    margin-bottom: 20px;
+}
+
+.description {
+    color: #666; /* Medium gray for the description */
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Smaller gap between links */
+}
+
+a {
+    text-decoration: none; /* Remove underline */
+    color: #0066cc; /* Basic blue link color */
+    font-size: 1em;
+    padding: 8px 15px; /* Minimal padding */
+    background-color: #ddd; /* Light gray background for buttons */
+    border-radius: 3px; /* Very slight rounding */
+}
+
+a:hover {
+    background-color: #ccc; /* Slightly darker gray on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .description {
+        font-size: 1em;
+    }
+
+    a {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+}

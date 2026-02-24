@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/levelselect.css">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Firebase UI -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <style>
+        button, input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        label, input {
+            width: 200px;
+        }
+        #errorMessage {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register</h1>
+    <form id="registerForm" class="column">
+        <label for="gName">Game Name:</label>
+        <input type="text" id="gName" name="gName" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required min="5">
+        <input type="submit" value="Submit">
+    </form>
+    <p id="errorMessage"></p>
+
+    <!-- JavaScript -->
+    <script type="module" src="/javascript/main.mjs"></script>
+</body>
+</html>

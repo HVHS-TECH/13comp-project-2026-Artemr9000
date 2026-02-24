@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page Metadata -->
+  <title>ADMIN</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="/css/style.css"> <!-- Corrected from stayle.css -->
+
+  <!-- P5.js & P5.play Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js" 
+    integrity="sha512-bzpp8klYroR6PFgL3RJ+VkvY5hJna7Zd38OA56peUDHSNQpSiN9lDQVnMYtcw7hoAVhbR6mAOdH+ymzg1o+G0A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/addons/p5.sound.js" 
+    integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://p5play.org/v3/planck.min.js"></script>
+  <script src="https://p5play.org/v3/p5play.js"></script>
+  
+  <!-- fb_ UI Styling:
+       Styles for Firebase authentication UI -->
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  
+  <!-- jQuery Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  <!-- JavaScript Module -->
+  <script type="module" src="/javascript/adminPage.mjs"></script>
+  <script type="module" src="/javascript/main.mjs"></script>
+
+
+</head>
+
+<body class="w3-grey">
+  <!-- Admin Header:
+       Displays admin greeting and back button -->
+  <header class="header-container">
+    <h1 class="header-title">
+        Hi <span id='h_gameName'></span>, you are ADMIN
+    </h1>
+    <button id="b_back" class="w3-button w3-border w3-text-white" 
+            onclick="history.back()">BACK
+    </button>
+  </header>
+
+  <!-- Admin Main Content:
+       Contains navigation and user data table -->
+      <!-- Admin Navigation Buttons:
+           Monitors buttons with data-track for events -->
+      <button id="b_ad_user" data-track="b_ad_user" 
+              class="ad_btn w3-button w3-block w3-col m2 
+              w3-medium w3-ripple w3-border">user</button>
+      <button id="b_ad_BG" data-track="b_ad_BG"  
+              class="ad_btn w3-button w3-block w3-col m2 
+              w3-medium w3-ripple w3-border">BG</button>
+      <button id="b_ad_SI" data-track="b_ad_SI" 
+              class="ad_btn w3-button w3-block w3-col m2 
+              w3-medium w3-ripple w3-border" style="background-color: grey;">SI</button>
+    </nav>
+    
+    <div>
+      <div id="d_admin" class="w3-table-all w3-small w3-light-grey 
+                               w3-hoverable w3-border w3-bordered content">
+	    <table id="t_userData"></table>
+	  </div>
+    </div>
+  </main>
+
+  <!-- fb_ Status Footer:
+       Displays Firebase operation statuses -->
+  <footer id="s_fbStatus" class="w3-grey">
+    <div class="w3-padding w3-lightGrey">
+      <p class="p_fbStatus">login:    <span id="p_fbLogin">    n/a</span></p>
+      <p class="p_fbStatus">read rec: <span id="p_fbReadRec">  n/a</span></p>
+      <p class="p_fbStatus">read all: <span id="p_fbReadAll">  n/a</span></p>
+      <p class="p_fbStatus">write:    <span id="p_fbWriteRec"> n/a</span></p>
+      <p class="p_fbStatus">readon:   <span id="p_fbReadOn">   n/a</span></p>
+      <p class="p_fbStatus">update:   <span id="p_fbUpdateRec">n/a</span></p>
+      <p class="p_fbStatus">delete:   <span id="p_fbDeleteRec">n/a</span></p>
+      <p class="p_fbStatus">debug:    <span id="p_debug">      n/a</span></p>
+      <button onclick="fb_logout()">logout</button>
+      <a href="/games/DG/dogGame.html">dog game</a>
+    </div>
+  </footer>
+</body>
+</html>
+<!-- End of Admin Manager Page -->

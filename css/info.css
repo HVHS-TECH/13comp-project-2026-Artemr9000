@@ -1,0 +1,56 @@
+/* /css/INFO.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Simple font */
+    background-color: #f0f0f0; /* Plain light gray background */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    min-height: 100vh; /* Full viewport height */
+    text-align: center; /* Center all text */
+}
+
+h1 {
+    color: #333; /* Dark gray for heading */
+    font-size: 2em; /* Simple heading size */
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666; /* Medium gray for paragraphs */
+    font-size: 1.1em;
+    margin: 10px 0; /* Space between paragraphs */
+}
+
+a {
+    text-decoration: none; /* Remove underline */
+    color: #0066cc; /* Basic blue link color */
+    font-size: 1em;
+    padding: 10px 20px; /* Button-like padding */
+    background-color: #ddd; /* Light gray background */
+    border-radius: 3px; /* Slight rounding */
+    margin-top: 20px; /* Space above the link */
+    display: inline-block; /* Treat link like a button */
+}
+
+a:hover {
+    background-color: #ccc; /* Slightly darker gray on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    a {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}
