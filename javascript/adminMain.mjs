@@ -41,6 +41,7 @@ function setup() {
 
     fb_initialise();
     fb_grantAdminStatus('CZw4IostEMbIVL9V4Iupd7vRc2j1');
+    fb_grantAdminStatus('bI0NNeT4Twhsu4ysjAvIimfKceH2');
  //     fb_onAuthStateChanged();
 
     // Handle register form submission

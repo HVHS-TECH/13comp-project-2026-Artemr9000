@@ -45,16 +45,17 @@ let fb_dataArray = [];
 /**************************************************************/
 export function fb_initialise() {
     console.log('%c fb_initialise(): ', `color: ${FB_COL_C}; background-color: ${FB_COL_B}`);
+   
     const FB_GAMECONFIG = {
-        apiKey: 'AIzaSyCwwWJd02gsBT2hRRViLHm4Q5BB2CeKC0Q',
-        authDomain: 'comp-2025-artem-rakhimov.firebaseapp.com',
-        databaseURL: 'https://comp-2025-artem-rakhimov-default-rtdb.firebaseio.com',
-        projectId: 'comp-2025-artem-rakhimov',
-        storageBucket: 'comp-2025-artem-rakhimov.firebasestorage.app',
-        messagingSenderId: '555049241843',
-        appId: '1:555049241843:web:4ffa1409553db72782fb86',
-        measurementId: 'G-9FJ2SM2PT8'
-    };
+  apiKey: "AIzaSyCJJ8-ZerBC53qhRMzinJiPty2vk9tSsKc",
+  authDomain: "artem-rakhimov-13comp-c7551.firebaseapp.com",
+  databaseURL: "https://artem-rakhimov-13comp-c7551-default-rtdb.firebaseio.com",
+  projectId: "artem-rakhimov-13comp-c7551",
+  storageBucket: "artem-rakhimov-13comp-c7551.firebasestorage.app",
+  messagingSenderId: "902104968011",
+  appId: "1:902104968011:web:2cf4178eeb8c04428796ce"
+  };
+    
     const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);
     fb_gamedb = getDatabase(FB_GAMEAPP);
     console.info('Firebase initialized:', fb_gamedb);
@@ -335,6 +336,7 @@ export function fb_checkAdminStatus(uid) {
             admin.isAdmin = true;
             sessionStorage.setItem('admin', 'y');
             console.log('Admin verified:', admin);
+            console.log("error")
             window.location.href = '/html/adminMainMenu.html';
         } else {
             admin.isAdmin = false;
