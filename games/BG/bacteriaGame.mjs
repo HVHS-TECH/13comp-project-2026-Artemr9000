@@ -65,12 +65,18 @@ window.preload = () => {
 // p5.js setup func - init game env
 window.setup = () => {
     console.log('%c setup(): ', 'color: ' + COL_C + '; background-color: ' + COL_B + ';');
+    
+async function userDetailsLogin(){
+     const userDetails = await userDetails(); 
     // Check if user is logged in
     if (userDetails.uid === 'n/a') {
         console.log('No user logged in, redirecting to login');
+        console.log('will send you back')
         window.location.href = '/index.html';
         return;
     }
+}
+
 
     canvas = new window.Canvas(window.innerWidth, window.innerHeight);
     window.world.gravity.y = -0.5;
@@ -81,7 +87,7 @@ window.setup = () => {
     createWalls();
     spawnBacteria();
     html_listen4Debug();
-
+    userDetailsLogin(); 
     bulletGroup = new window.Group();
     console.log('Setup complete. Player sprite:', playerSprite, 'Bacteria group:', bacteriaGroup);
 };
