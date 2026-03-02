@@ -81,16 +81,17 @@ function setup() {
 
             const gameName = document.getElementById('gName').value.trim();
             const age = parseInt(document.getElementById('age').value);
-
+            const contry = document.getElementById('contry').value.trim();
+            
             // Validate inputs
-            if (!gameName || isNaN(age) || age < 5) {
+            if (!gameName || isNaN(age) || age < 5 || !contry) {
                 document.getElementById('errorMessage').textContent = 'Please enter a valid game name and age.';
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
 
             // Update userDetails and write to Firebase
-            fb_register(gameName, age)
+            fb_register(gameName, age, contry)
                 .then(() => window.location.href = '/html/mainMenu.html')
                 .catch((error) => {
                     document.getElementById('errorMessage').textContent = `Error: ${error.message}`;

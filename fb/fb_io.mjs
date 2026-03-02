@@ -25,7 +25,9 @@ export let userDetails = {
   photo: 'n/a',
   uid: 'n/a',
   gameName: 'n/a',
-  age: 0
+  age: 0,
+  contry: 'n/a'
+  
 };
 export let admin = {
   uid: 'n/a',
