@@ -90,7 +90,7 @@ export function fb_login() {
                 if (snapshot.exists()) {
                     userDetails.gameName = snapshot.val().gameName
                      userDetails.age = snapshot.val().age
-                       userDetails.contry = snapshot.val().age
+                       userDetails.contry = snapshot.val().contry
                     console.log('User data found, redirecting to main menu');
                     fb_checkAdminStatus(result.user.uid);
                 } else {
@@ -127,7 +127,7 @@ export function fb_onAuthStateChanged(callbackFn) {
             userDetails.uid = user.uid || 'n/a';
             userDetails.gameName = user.gameName  || 'n/a';
             userDetails.age = user.age  || 'n/a'; 
-             userDetails.age = user.contry  || 'n/a'; 
+             userDetails.contry = user.contry  || 'n/a'; 
             fb_read();
             sessionStorage.setItem('uid', userDetails.uid);
             console.log('Auth state: Logged in', userDetails);

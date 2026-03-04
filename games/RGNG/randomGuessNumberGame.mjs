@@ -1,9 +1,20 @@
 /**************************************************************/
 // randomGuessNumberGame.mjs
-// Main game logic for Bacteria Game
+// Main game logic for randomGuessNumberGame 
 // Written by Artem Rakhimov, Term 1 2026
 /**************************************************************/
-var winningNumber = Math.floor(Math.random() * 10) + 1;
+/**************************************************************/
+// Imports from firebase
+/**************************************************************/
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { getDatabase, ref, set, get, update, query, orderByChild, limitToLast } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+
+/**************************************************************/
+// Imports from fb_io.mjs
+/**************************************************************/
+import {fb_initialise, fb_onAuthStateChanged, fb_gamedb, userDetails} 
+from '/fb/fb_io.mjs';
 
 
 function randomNumberGame(){
