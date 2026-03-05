@@ -8,7 +8,7 @@
 /**************************************************************/
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getDatabase, ref, set, get, update, query, orderByChild, limitToLast } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
 
 /**************************************************************/
 // Imports from fb_io.mjs
@@ -36,5 +36,5 @@ let gameNumber;
 fb_initialise();
 fb_onAuthStateChanged((uid) => {
  // Auth is confirmed — uid is the logged-in user's ID
- console.log('Auth state: Logged in', userDetails);
+ console.log('Auth state: Logged in', uid);
 });

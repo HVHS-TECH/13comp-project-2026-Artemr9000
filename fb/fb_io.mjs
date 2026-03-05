@@ -18,7 +18,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signO
 /**************************************************************/
 // Global variables
 /**************************************************************/
-let fb_gamedb;
+export let fb_gamedb;
 export let userDetails = {
   displayName: 'n/a',
   email: 'n/a',
