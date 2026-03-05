@@ -22,13 +22,19 @@ from '/fb/fb_io.mjs';
 
 //gameRole tracks whether the person is gameOwner or Player
 let gameRole;
-//gameId
+//gameID is a unique key for the current game 
 let gameID;
-
+//game number: secret number this client needs to guess set when player joins the lobby
 let gameNumber;
 
-function randomNumberGame(){
 
-
-
-};
+/**************************************************************/
+// Startup
+// Initialize Firebase, then wait for auth before doing anything.
+// fb_onAuthStateChanged will call gtn_startup() once the user is confirmed.
+/**************************************************************/
+fb_initialise();
+fb_onAuthStateChanged((uid) => {
+ // Auth is confirmed — uid is the logged-in user's ID
+ console.log('Auth state: Logged in', userDetails);
+});
