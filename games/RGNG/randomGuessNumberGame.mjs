@@ -16,6 +16,16 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signO
 import {fb_initialise, fb_onAuthStateChanged, fb_gamedb, userDetails} 
 from '/fb/fb_io.mjs';
 
+/**************************************************************/
+// Game State variables
+/**************************************************************/
+
+//gameRole tracks whether the person is gameOwner or Player
+let gameRole;
+//gameId
+let gameID;
+
+let gameNumber;
 
 function randomNumberGame(){
 
