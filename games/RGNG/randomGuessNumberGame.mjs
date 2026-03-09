@@ -26,7 +26,8 @@ let gameRole;
 let gameID;
 //game number: secret number this client needs to guess set when player joins the lobby
 let gameNumber;
-
+//guess: players guess
+let guess;
 
 /**************************************************************/
 // Startup
@@ -38,3 +39,15 @@ fb_onAuthStateChanged((uid) => {
  // Auth is confirmed — uid is the logged-in user's ID
  console.log('Auth state: Logged in', uid);
 });
+
+gameNumber = Math.floor(Math.random() * 10) + 1;
+console.log(gameNumber)
+
+ 
+ if (guess < gameNumber){
+    result = 'too low';     
+  }else if (guess > gameNumber){
+    result = 'too high';     
+  }else{
+    result = 'win'; 
+}    
