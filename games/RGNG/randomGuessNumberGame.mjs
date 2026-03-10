@@ -13,7 +13,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signO
 /**************************************************************/
 // Imports from fb_io.mjs
 /**************************************************************/
-import {fb_initialise, fb_onAuthStateChanged, fb_gamedb, userDetails} 
+import {fb_initialise, fb_onAuthStateChanged, fb_gamedb, userDetails, fb_write, fb_read} 
 from '/fb/fb_io.mjs';
 
 /**************************************************************/
@@ -45,9 +45,11 @@ console.log(gameNumber)
 
  
  if (guess < gameNumber){
-    result = 'too low';     
+   console.log("lower");     
   }else if (guess > gameNumber){
-    result = 'too high';     
+    console.log('higher');     
   }else{
-    result = 'win'; 
+    console.log("win"); 
 }    
+
+ 
