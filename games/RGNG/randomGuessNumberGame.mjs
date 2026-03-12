@@ -17,8 +17,15 @@ import {fb_initialise, fb_onAuthStateChanged, fb_gamedb, userDetails, fb_write, 
 from '/fb/fb_io.mjs';
 
 /**************************************************************/
-// Game State variables
+// Game State variables/constents
 /**************************************************************/
+
+//displayname of the user 
+const displayName = sessionStorage.getItem("displayName");  
+//photo url of the user 
+const photo = sessionStorage.getItem("photo");     
+//uid of the user 
+const uid = sessionStorage.getItem("uid");     
 
 //gameRole tracks whether the person is gameOwner or Player
 let gameRole;
@@ -40,7 +47,15 @@ fb_onAuthStateChanged((uid) => {
  console.log('Auth state: Logged in', uid);
 });
 
+function createGame(){
+console.log("create game")
+  gameRole = "gameOwner";     
+gameID = user.uid;   
+
+}
+
 gameNumber = Math.floor(Math.random() * 10) + 1;
+
 console.log(gameNumber)
 
  
