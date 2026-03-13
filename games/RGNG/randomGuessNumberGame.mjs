@@ -46,19 +46,25 @@ fb_onAuthStateChanged((uid) => {
  // Auth is confirmed — uid is the logged-in user's ID
  console.log('Auth state: Logged in', uid);
 });
-
-function createGame(){
+/************************/
+//createGame
+//creates the game 
+/************************/
+export function createGame(){
 console.log("create game")
-  gameRole = "gameOwner";     
-gameID = user.uid;   
+gameRole = "gameOwner";     
+gameID = uid;   
 
+const db = fb_gamedb 
+set(ref(db,'/waitingGames', + gameID), displayName)
 }
+//makes the number random 
 
 gameNumber = Math.floor(Math.random() * 10) + 1;
 
 console.log(gameNumber)
 
- 
+//guess the number logic  
  if (guess < gameNumber){
    console.log("lower");     
   }else if (guess > gameNumber){
@@ -67,4 +73,3 @@ console.log(gameNumber)
     console.log("win"); 
 }    
 
- 
