@@ -51,15 +51,14 @@ fb_onAuthStateChanged((uid) => {
 //creates the game 
 /************************/
 export function createGame(){
-console.log("create game")
+console.log("create game");
 gameRole = "gameOwner";     
 gameID = uid;   
 
 const db = fb_gamedb 
-set(ref(db,'/waitingGames', + gameID), displayName)
+set(ref(db,'/waitingGames', + gameID), displayName);
 }
 //makes the number random 
-
 gameNumber = Math.floor(Math.random() * 10) + 1;
 
 console.log(gameNumber)
