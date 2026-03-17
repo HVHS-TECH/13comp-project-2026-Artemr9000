@@ -1,3 +1,9 @@
+/**************************************************************/
+// randomGuessNumberGamePage.mjs
+// Main game logic for randomGuessNumberGame 
+// Written by Artem Rakhimov, Term 1 2026
+/**************************************************************/
+console.log("loaded page.mjs")
 function page_updateGameList(gameList){
     console.log(gameList)
     if(gameList == null){

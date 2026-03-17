@@ -3,6 +3,7 @@
 // Main game logic for randomGuessNumberGame 
 // Written by Artem Rakhimov, Term 1 2026
 /**************************************************************/
+console.log("loaded game.mjs")
 /**************************************************************/
 // Imports from firebase
 /**************************************************************/
@@ -11,7 +12,7 @@ import { getDatabase, ref, set, get, update, query, orderByChild, limitToLast } 
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
 
 /**************************************************************/
-// Imports from fb_io.mjs
+// Imports from fb_io.mjs 
 /**************************************************************/
 import {fb_initialise, fb_onAuthStateChanged, fb_gamedb, userDetails, fb_write, fb_read} 
 from '/fb/fb_io.mjs';
@@ -39,7 +40,7 @@ let guess;
 /**************************************************************/
 // Startup
 // Initialize Firebase, then wait for auth before doing anything.
-// fb_onAuthStateChanged will call gtn_startup() once the user is confirmed.
+// fb_onAuthStateChanged will call startup() once the user is confirmed.
 /**************************************************************/
 fb_initialise();
 fb_onAuthStateChanged((uid) => {
@@ -50,7 +51,7 @@ fb_onAuthStateChanged((uid) => {
 //createGame
 //creates the game 
 /************************/
-export function createGame(){
+export function createGame() {
 console.log("create game");
 gameRole = "gameOwner";     
 gameID = uid;   

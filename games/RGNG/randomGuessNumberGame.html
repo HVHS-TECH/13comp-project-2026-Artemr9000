@@ -11,8 +11,12 @@
      <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="./style.css">
    
-    <!-- P5.js & P5.play ***************************************-->
+    <!-- mjs or js ***************************************-->
 
+    <script type="module" src="/games/RGNG/randomGuessNumberGame.mjs"></script>
+     <script type="module" src="/games/RGNG/randomGuessNumberGamePage.mjs"></script>
+     <script type="module" src="/javascript/mainGame.mjs"></script>
+     
 
     <!-- firebase start ****************************************-->
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
@@ -30,12 +34,9 @@
     <h1>Random Guess Number Game</h1>
      <div class="form">
         <div id="gameDisplay">Loading games...</div>
-    
-
-    </div>
-      <script type="module" src="/games/RGNG/randomGuessNumberGame.mjs"></script>
-      <script type="module" src="/games/RGNG/randomGuessNumberGamePage.mjs"></script>
-      <script type="module" src="/javascript/main.mjs"></script>
+     </div>
+     
+     <button onclick="createGame()">Create a game</button>
        
 </body>
 </html>

@@ -37,6 +37,7 @@ function setup() {
     window.fb_adminLogin = fb_adminLogin;
     window.admin = admin;
     window.userDetails = userDetails;
+    
 
     // Initialize Firebase
     fb_initialise();
