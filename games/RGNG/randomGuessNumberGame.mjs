@@ -37,6 +37,7 @@ let gameNumber;
 //guess: players guess
 let guess;
 
+
 /**************************************************************/
 // Startup
 // Initialize Firebase, then wait for auth before doing anything.
@@ -52,12 +53,24 @@ fb_onAuthStateChanged((uid) => {
 //creates the game 
 /************************/
 export function createGame() {
-console.log("create game");
-gameRole = "gameOwner";     
-gameID = uid;   
 
+console.log("create game");
+gameRole = "gameOwner"; 
+console.log(gameRole)    
+gameID = uid;   
+console.log(gameID)
 const db = fb_gamedb 
-set(ref(db,'/waitingGames', + gameID), displayName);
+
+
+
+set(ref(db, '/waitingGames/' + gameID), displayName);
+set(ref(db, '/gamesInProgress/' + gameID), {
+  p1: uid,
+  lastTurn: uid,
+  players: {
+    [uid]: { name: displayName, guess: null,}
+  }
+});
 }
 //makes the number random 
 gameNumber = Math.floor(Math.random() * 10) + 1;
