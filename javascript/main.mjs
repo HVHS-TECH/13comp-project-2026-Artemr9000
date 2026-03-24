@@ -46,7 +46,7 @@ function setup() {
 
     // Check auth state on specific pages
     const currentPage = window.location.pathname;
-    if (currentPage === '/index.html' || currentPage === '/html') {
+    if (currentPage === '../index.html' || currentPage === '../html') {
         // Monitor auth state and check admin status on index.html
         fb_onAuthStateChanged((uid) => {
             if (uid !== 'n/a') {
@@ -55,7 +55,7 @@ function setup() {
                 console.log('No user logged in, staying on current page');
             }
         });
-    } else if (currentPage === '/html/register.html') {
+    } else if (currentPage === '../html/register.html') {
         // Monitor auth state on register.html to restore userDetails, but don't check admin status
         fb_onAuthStateChanged((uid) => {
             if (uid !== 'n/a') {
@@ -77,7 +77,7 @@ function setup() {
             if (!userDetails.uid || userDetails.uid === 'n/a') {
                 document.getElementById('errorMessage').textContent = 'Please log in first.';
                 document.getElementById('errorMessage').style.display = 'block';
-                window.location.href = '/index.html';
+                window.location.href = '../index.html';
                 return;
             }
 
@@ -94,7 +94,7 @@ function setup() {
 
             // Update userDetails and write to Firebase
             fb_register(gameName, age, contry)
-                .then(() => window.location.href = '/html/mainMenu.html')
+                .then(() => window.location.href = '../html/mainMenu.html')
                 .catch((error) => {
                     document.getElementById('errorMessage').textContent = `Error: ${error.message}`;
                     document.getElementById('errorMessage').style.display = 'block';

@@ -95,7 +95,7 @@ export function fb_login() {
                     fb_checkAdminStatus(result.user.uid);
                 } else {
                     console.log('No user data, redirecting to register');
-                    window.location.href = '/html/register.html';
+                    window.location.href = '../html/register.html';
                 }
             }).catch((error) => {
                 console.error('Error checking user data:', error);
@@ -164,7 +164,7 @@ export function fb_logout() {
             sessionStorage.removeItem('uid');
             sessionStorage.removeItem('admin');
             console.log('User logged out successfully');
-            window.location.href = '/index.html';
+            window.location.href = '../index.html';
         })
         .catch((error) => {
             console.error('Logout error:', error);
@@ -329,7 +329,7 @@ export function fb_adminLogin() {
 export function fb_checkAdminStatus(uid) {
     console.log('%c fb_checkAdminStatus(): ', `color: ${FB_COL_C}; background-color: ${FB_COL_B}`);
     const currentPage = window.location.pathname;
-    if (currentPage === '/html/register.html' || currentPage === '/html/adminMainMenu.html') {
+    if (currentPage === '../html/register.html' || currentPage === '../html/adminMainMenu.html') {
         console.log('Skipping admin check on register or admin page');
         return Promise.resolve();
     }
@@ -342,18 +342,18 @@ export function fb_checkAdminStatus(uid) {
             sessionStorage.setItem('admin', 'y');
             console.log('Admin verified:', admin);
             console.log("error")
-            window.location.href = '/html/adminMainMenu.html';
+            window.location.href = '../html/adminMainMenu.html';
         } else {
             admin.isAdmin = false;
             sessionStorage.setItem('admin', 'n');
             console.log('Non-admin user detected');
-            window.location.href = '/html/mainMenu.html';
+            window.location.href = '../html/mainMenu.html';
         }
     }).catch((error) => {
         console.error('Error checking admin status:', error);
         alert(`Error checking admin status: ${error.message}`);
         sessionStorage.setItem('admin', 'n');
-        window.location.href = '/html/mainMenu.html';
+        window.location.href = '../html/mainMenu.html';
     });
 }
 

@@ -60,7 +60,7 @@ console.log(gameRole)
 gameID = uid;   
 console.log(gameID)
 const db = fb_gamedb 
-
+console.log(fb_gamedb)
 
 
 set(ref(db, '/waitingGames/' + gameID), displayName);
