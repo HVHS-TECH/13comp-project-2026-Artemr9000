@@ -8,7 +8,7 @@ const COL_C = 'white';
 const COL_B = '#CD7F32';
 console.log('%c bacteriaGame.mjs', 'color: ' + COL_C + '; background-color: ' + COL_B + ';');
 
-import { fb_initialise, fb_saveScore, userDetails, fb_onAuthStateChanged } from '/fb/fb_io.mjs';
+import { fb_initialise, fb_saveScore, userDetails, fb_onAuthStateChanged } from '../fb/fb_io.mjs';
 
 // Initialize Firebase
 fb_initialise();

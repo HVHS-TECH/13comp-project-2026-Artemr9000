@@ -75,7 +75,7 @@ import { getDatabase, ref, update, remove, get}
 // Import all constants & functions required from fb_io module
 // ENSURE THE IMPORTED FUNCTION NAMES & MODULE THEY ARE FROM ARE CORRECT//<=======
 import { fb_initialise, fb_onAuthStateChanged} 
-  from '/fb/fb_io.mjs';
+  from '../fb/fb_io.mjs';
 
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
