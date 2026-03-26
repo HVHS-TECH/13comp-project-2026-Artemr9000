@@ -308,10 +308,10 @@ window.draw = () => {
 
     if (health <= 0) {
         fb_saveScore('BG', score).then(() => {
-            window.location.href = "/html/lose.html";
+            window.location.href = "../../html/lose.html";
         }).catch((error) => {
             console.log('Error saving score:', error);
-            window.location.href = "/html/lose.html";
+            window.location.href = "../../html/lose.html";
         });
     
     }
@@ -323,10 +323,10 @@ window.draw = () => {
 
     if (elapsedTime >= winTime) {
         fb_saveScore('BG', score).then(() => {
-            window.location.href = "/html/win.html";
+            window.location.href = "../../html/win.html";
         }).catch((error) => {
             console.log('Error saving score:', error);
-            window.location.href = "/html/win.html";
+            window.location.href = "../../html/win.html";
         });
     }
 
