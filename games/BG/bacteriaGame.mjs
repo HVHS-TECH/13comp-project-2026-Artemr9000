@@ -48,16 +48,16 @@ window.preload = () => {
         console.error('loadImage not available. Ensure p5.js is loaded.');
         return;
     }
-    imgFace = window.loadImage('/images/bloodcell.png', 
+    imgFace = window.loadImage('../../images/bloodcell.png', 
         () => console.log('bloodcell.png loaded successfully'),
         (err) => console.error('Failed to load bloodcell.png:', err));
-    imgVirus = window.loadImage('/images/virus.png',
+    imgVirus = window.loadImage('../../images/virus.png',
         () => console.log('virus.png loaded successfully'),
         (err) => console.error('Failed to load virus.png:', err));
-    imgHealth = window.loadImage('/images/green cross.jpg',
+    imgHealth = window.loadImage('../../images/green cross.jpg',
         () => console.log('green cross.jpg loaded successfully'),
         (err) => console.error('Failed to load green cross.jpg:', err));
-    imgPowerup = window.loadImage('/images/arrow.png',
+    imgPowerup = window.loadImage('../../images/arrow.png',
         () => console.log('arrow.png loaded successfully'),
         (err) => console.error('Failed to load arrow.png:', err));
 };
