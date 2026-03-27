@@ -41,9 +41,9 @@ function setup() {
 
     // Initialize Firebase
     fb_initialise();
+    fb_onAuthStateChanged();
     fb_grantAdminStatus('CZw4IostEMbIVL9V4Iupd7vRc2j1');
-    
-
+   
     // Check auth state on specific pages
     const currentPage = window.location.pathname;
     if (currentPage === '../index.html' || currentPage === '../html') {
