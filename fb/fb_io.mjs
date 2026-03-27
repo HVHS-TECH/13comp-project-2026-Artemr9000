@@ -95,7 +95,7 @@ export function fb_login() {
                     fb_checkAdminStatus(result.user.uid);
                 } else {
                     console.log('No user data, redirecting to register');
-                    window.location.href = './html/register.html';
+                    window.location.href = 'html/register.html';
                 }
             }).catch((error) => {
                 console.error('Error checking user data:', error);
