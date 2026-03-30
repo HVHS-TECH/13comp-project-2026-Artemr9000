@@ -342,18 +342,18 @@ export function fb_checkAdminStatus(uid) {
             sessionStorage.setItem('admin', 'y');
             console.log('Admin verified:', admin);
             console.log("error")
-            window.location.href = '../html/adminMainMenu.html';
+            window.location.href = 'html/adminMainMenu.html';
         } else {
             admin.isAdmin = false;
             sessionStorage.setItem('admin', 'n');
             console.log('Non-admin user detected');
-            window.location.href = '../html/mainMenu.html';
+            window.location.href = 'html/mainMenu.html';
         }
     }).catch((error) => {
         console.error('Error checking admin status:', error);
         alert(`Error checking admin status: ${error.message}`);
         sessionStorage.setItem('admin', 'n');
-        window.location.href = '../html/mainMenu.html';
+        window.location.href = 'html/mainMenu.html';
     });
 }
 
