@@ -77,6 +77,8 @@ gameNumber = Math.floor(Math.random() * 10) + 1;
 
 console.log(gameNumber)
 
+
+function onjoinlobby(){
 //guess the number logic  
  if (guess < gameNumber){
    console.log("lower");     
@@ -85,4 +87,4 @@ console.log(gameNumber)
   }else{
     console.log("win"); 
 }    
-
+}
