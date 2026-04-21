@@ -39,6 +39,8 @@ a:hover {
     background-color: #ccc; /* Slightly darker gray on hover */
 }
 
+
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     h1 {

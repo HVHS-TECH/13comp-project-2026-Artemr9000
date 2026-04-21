@@ -43,6 +43,19 @@ a:hover {
     background-color: #ccc; /* Slightly darker gray on hover */
 }
 
+.logout {
+    text-decoration: none; /* Remove underline */
+    color: #0066cc; /* Basic blue link color */
+    font-size: 1em;
+    padding: 8px 15px; /* Minimal padding */
+    background-color: #ddd; /* Light gray background for buttons */
+    border-radius: 3px; /* Very slight rounding */
+}
+
+.logout:hover {
+    background-color: #ccc; /* Slightly darker gray on hover */
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     h1 {
