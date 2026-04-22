@@ -227,6 +227,7 @@ function ad_processUSERReadAll(_result, _path,  _snapshot, _save, _error) {
           gameName:     childData.gamename,
           age:          childData.age,  
           uid:          childKey
+
         });
       });
     }
@@ -427,7 +428,6 @@ function ad_userInput(_feildName, _data) {
     age:          'n',
     uid:          'b',
  
-    gameName:     'b',
     time:         'n'
   };
     
