@@ -427,7 +427,7 @@ function ad_userInput(_feildName, _data) {
     phone:        'n',
     age:          'n',
     uid:          'b',
- 
+    
     time:         'n'
   };
     

@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif; /* Simple, clean font */
-    background-color: #f0f0f0; /* Plain light gray background */
+    background-color: #ffffff; /* Plain light gray background */
     display: flex;
     flex-direction: column; /* Stack everything vertically */
     justify-content: center; /* Center vertically */
