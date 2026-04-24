@@ -1,38 +1,128 @@
+<!-- win.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bacteria Game</title>
-       <!-- stylesheets *******************************************-->
+    <title>Bacteria Game - You Lose</title>
+    <!-- stylesheets -->
     <link rel="stylesheet" href="../css/WINANDLOSE.css">
-     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="./style.css">
-   
-    <!-- P5.js & P5.play ***************************************-->
-  <script src="https://q5js.org/q5.js"></script>
-<script src="https://p5play.org/v3/planck.min.js"></script>
-    <script src="https://p5play.org/v3/p5play.js"></script>
-     
-
-    <!-- firebase start ****************************************-->
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-    <!-- firebase end ******************************************-->
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+ 
+     <script type="module" src="../javascript/main.mjs"></script>
     
+
+    <!-- Firebase -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <style>
-        button {
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #2ecc71;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
             padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+        #leaderboard {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #leaderboard th, #leaderboard td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        #leaderboard th {
+            background-color: #3498db;
+            color: white;
+        }
+        #leaderboard tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #leaderboard tr:hover {
+            background-color: #f1f1f1;
+        }
+        #loading {
+            color: #666;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <h1>you have lost</h1>
-    <a href="../games/BG/bacteriaGame.html">retry?</a> 
-    <a href="./mainMenu.html">main menu</a>
-       <script type="module" src="../javascript/main.mjs"></script>
-       
-    
+    <h1>You Have Lost</h1>
+    <h2>Leaderboard</h2>
+    <table id="leaderboard">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body">
+            <tr><td colspan="4" id="loading">Loading leaderboard...</td></tr>
+        </tbody>
+    </table>
+    <a href="../games/BG/bacteriaGame.html">Retry?</a>
+    <a href="./mainMenu.html">Main Menu?</a>
+
+    <!-- Firebase and game scripts -->
+    <script defer type="module">
+        import { fb_initialise, fb_getLeaderboard } from '../fb/fb_io.mjs';
+        console.log('before fb')
+        
+        // Initialize Firebase
+        fb_initialise();
+
+        // Fetch and display leaderboard
+        async function loadLeaderboard() {
+            try {
+                console.log('start')
+                const scores = await fb_getLeaderboard('BG', 10);
+                const leaderboardBody = document.getElementById('leaderboard-body');
+                leaderboardBody.innerHTML = ''; // Clear loading message
+
+                if (scores.length === 0) {
+                    leaderboardBody.innerHTML = '<tr><td colspan="4">No scores available</td></tr>';
+                    return;
+                }
+
+                scores.forEach((score, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${score.gameName || 'Anonymous'}</td>
+                        <td>${score.score}</td>
+                    `;
+                    leaderboardBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading leaderboard:', error);
+                document.getElementById('leaderboard-body').innerHTML = 
+                    '<tr><td colspan="4">Error loading leaderboard</td></tr>';
+            }
+        }
+
+        // Load leaderboard when page loads
+       loadLeaderboard();
+        
+    </script>
 </body>
 </html>
