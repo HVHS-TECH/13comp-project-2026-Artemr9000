@@ -423,7 +423,7 @@ function ad_userInput(_feildName, _data) {
 	  email:       'b',
     // Left photoURL out - its so long the table will be too wide for screen
     //photoURL:   'b', 
-    gameName:     'b',
+    gameName:     'a',
     phone:        'n',
     age:          'n',
     uid:          'b',
