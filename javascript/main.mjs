@@ -85,16 +85,17 @@ function setup() {
             const age = parseInt(document.getElementById('age').value);
             const contry = document.getElementById('contry').value.trim();
             const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
 
             // Validate inputs - making sure nothing is blank or weird
-            if (!gameName || isNaN(age) || age < 5 || !contry || !phone) {
+            if (!gameName || isNaN(age) || age < 5 || !contry || !phone || !address) {
                 document.getElementById('errorMessage').textContent = 'Please fill in all fields with valid info.';
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
 
             // Update userDetails and write to Firebase
-            fb_register(gameName, age, contry, phone)
+            fb_register(gameName, age, contry, phone, address)
                 .then(() => window.location.href = '../html/mainMenu.html')
                 .catch((error) => {
                     document.getElementById('errorMessage').textContent = `Error: ${error.message}`;
