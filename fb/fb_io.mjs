@@ -26,8 +26,8 @@ export let userDetails = {
   uid: 'n/a',
   gameName: 'n/a',
   age: 0,
-  contry: 'n/a'
-  
+  contry: 'n/a',
+  phone: 'n/a'
 };
 export let admin = {
   uid: 'n/a',
@@ -126,8 +126,9 @@ export function fb_onAuthStateChanged(callbackFn) {
             userDetails.photo = user.photoURL || 'n/a';
             userDetails.uid = user.uid || 'n/a';
             userDetails.gameName = user.gameName  || 'n/a';
-            userDetails.age = user.age  || 'n/a'; 
-             userDetails.contry = user.contry  || 'n/a'; 
+            userDetails.age = user.age  || 'n/a';
+             userDetails.contry = user.contry  || 'n/a';
+            userDetails.phone = user.phone || 'n/a';
             fb_read();
             sessionStorage.setItem('uid', userDetails.uid);
             console.log('Auth state: Logged in', userDetails);
@@ -135,7 +136,7 @@ export function fb_onAuthStateChanged(callbackFn) {
                 callbackFn(userDetails.uid);
             }
         } else {
-            userDetails = { displayName: 'n/a', email: 'n/a', photo: 'n/a', uid: 'n/a', gameName: 'n/a', age: 0,  contry: 'n/a'};
+            userDetails = { displayName: 'n/a', email: 'n/a', photo: 'n/a', uid: 'n/a', gameName: 'n/a', age: 0, contry: 'n/a', phone: 'n/a'};
             admin = { uid: 'n/a', isAdmin: false };
             sessionStorage.removeItem('uid');
             sessionStorage.removeItem('admin');
@@ -159,7 +160,7 @@ export function fb_logout() {
     const AUTH = getAuth();
     signOut(AUTH)
         .then(() => {
-            userDetails = { displayName: 'n/a', email: 'n/a', photo: 'n/a', uid: 'n/a', gameName: 'n/a', age: 0, contry: 'n/a'};
+            userDetails = { displayName: 'n/a', email: 'n/a', photo: 'n/a', uid: 'n/a', gameName: 'n/a', age: 0, contry: 'n/a', phone: 'n/a'};
             admin = { uid: 'n/a', isAdmin: false };
             sessionStorage.removeItem('uid');
             sessionStorage.removeItem('admin');
@@ -269,17 +270,20 @@ export function fb_updatedata(updates) {
 
 /**************************************************************/
 // fb_ register()
-// Registers a new user with game name and age
-// Input:  gName (string), age (number)
+// Registers a new user in the database with game name, age, country and phone
+// Called by main.mjs when the register form is submitted
+// Input:  gName (string), age (number), contry (string), phone (string)
 // Return: Promise
 /**************************************************************/
-export function fb_register(gName, age, contry) {
+export function fb_register(gName, age, contry, phone) {
     console.log('%c fb_register(): ', `color: ${FB_COL_C}; background-color: ${FB_COL_B}`);
     const path = `userDetails/${userDetails.uid}`;
     const dbRef = ref(fb_gamedb, path);
     userDetails.gameName = gName;
     userDetails.age = parseInt(age);
     userDetails.contry = contry;
+    // store the phone number too now
+    userDetails.phone = phone;
     return set(dbRef, userDetails)
         .then(() => {
             console.log('User registered:', userDetails);
