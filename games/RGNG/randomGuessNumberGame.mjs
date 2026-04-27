@@ -15,7 +15,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signO
 // Imports from fb_io.mjs 
 /**************************************************************/
 import {fb_initialise, fb_onAuthStateChanged, fb_gamedb, userDetails, fb_write, fb_read} 
-from '/fb/fb_io.mjs';
+from '../../fb/fb_io.mjs';
 
 /**************************************************************/
 // common questions  
@@ -32,63 +32,3 @@ const photo = sessionStorage.getItem("photo");
 //uid of the user 
 const uid = sessionStorage.getItem("uid");     
 
-//gameRole tracks whether the person is gameOwner or Player
-let gameRole;
-//gameID is a unique key for the current game 
-let gameID;
-//game number: secret number this client needs to guess set when player joins the lobby
-let gameNumber;
-//guess: players guess
-let guess;
-
-
-/**************************************************************/
-// Startup
-// Initialize Firebase, then wait for auth before doing anything.
-// fb_onAuthStateChanged will call startup() once the user is confirmed.
-/**************************************************************/
-fb_initialise();
-fb_onAuthStateChanged((uid) => {
- // Auth is confirmed — uid is the logged-in user's ID
- console.log('Auth state: Logged in', uid);
-});
-/************************/
-//createGame
-//creates the game 
-/************************/
-export function createGame() {
-
-console.log("create game");
-gameRole = "gameOwner"; 
-console.log(gameRole)    
-gameID = uid;   
-console.log(gameID)
-const db = fb_gamedb 
-console.log(fb_gamedb)
-
-
-set(ref(db, '/waitingGames/' + gameID), displayName);
-set(ref(db, '/gamesInProgress/' + gameID), {
-  p1: uid,
-  lastTurn: uid,
-  players: {
-    [uid]: { name: displayName, guess: null,}
-  }
-});
-}
-//makes the number random 
-gameNumber = Math.floor(Math.random() * 10) + 1;
-
-console.log(gameNumber)
-
-
-function onjoinlobby(){
-//guess the number logic  
- if (guess < gameNumber){
-   console.log("lower");     
-  }else if (guess > gameNumber){
-    console.log('higher');     
-  }else{
-    console.log("win"); 
-}    
-}
