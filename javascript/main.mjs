@@ -88,8 +88,10 @@ function setup() {
             const address = document.getElementById('address').value.trim();
 
             // Validate inputs - making sure nothing is blank or weird
-            if (!gameName || isNaN(age) || age < 5 || !contry || !phone || !address) {
-                document.getElementById('errorMessage').textContent = 'Please fill in all fields with valid info.';
+            // phone needs to be only numbers, 9 to 12 digits (NZ format)
+            const phoneValid = /^[0-9]{9,12}$/.test(phone);
+            if (!gameName || isNaN(age) || age < 5 || age > 120 || !contry || !phoneValid || address.length < 5) {
+                document.getElementById('errorMessage').textContent = 'Check all fields - phone must be 9-12 digits, address min 5 chars.';
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
