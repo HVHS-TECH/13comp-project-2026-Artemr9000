@@ -219,15 +219,17 @@ function ad_processUSERReadAll(_result, _path,  _snapshot, _save, _error) {
 
         // ENSURE THE FIELDS YOU PUSH INTO THE ARRAY OF OBJECTS         //<=======
         //  MATCH YOUR FIREBASE RECORDS FOR THE PATH                    //<=======
-        ad_adminArray.push({     
+        ad_adminArray.push({
           displayName:  childData.displayName,
           email:        childData.email,
           // Left photoURL out as its so long the table will be too wide for the screen
-          //photoURL:   childData.photoURL,  
-          gameName:     childData.gamename,
-          age:          childData.age,  
+          //photoURL:   childData.photoURL,
+          gameName:     childData.gameName,
+          contry:       childData.contry,
+          phone:        childData.phone,
+          address:      childData.address,
+          age:          childData.age,
           uid:          childKey
-
         });
       });
     }
@@ -255,8 +257,9 @@ function ad_processUSERReadAll(_result, _path,  _snapshot, _save, _error) {
   // MAKE SURE THE FOLOWING PARAMETERS ARE CORRECT. PARAMETER:          //<=======
   //  7 = COLUMMN NUMBER WHICH CONTAINS THE DATABASE KEY.               //<=======
   //  8 = DATABASE PATH THE RECORDS WERE READ FROM.                     //<=======
-  ad_displayAll("t_userData", ad_adminArray, true, "", "", "", 
-                5, DETAILS);                                            //<=======
+  // uid is now column 8 (0-based) after adding contry, phone, address + action col
+  ad_displayAll("t_userData", ad_adminArray, true, "", "", "",
+                8, DETAILS);                                            //<=======
 }
 
 /**************************************************************/
@@ -418,16 +421,18 @@ function ad_userInput(_feildName, _data) {
   // Set up data types; 'a' for alphabetic,   'n' for numeric  &  'b' for both
   // ENSURE THE FIELDS BELOW MATCH YOUR DB FILEDS                       //<=======
   //   AND THE DATATYPE IS CORRECTLY SET                                //<=======
-  let vd_dataTypes = {            
+  let vd_dataTypes = {
     displayName:  'a',
 	  email:       'b',
     // Left photoURL out - its so long the table will be too wide for screen
-    //photoURL:   'b', 
+    //photoURL:   'b',
     gameName:     'a',
+    contry:       'a',
     phone:        'n',
+    address:      'a',
     age:          'n',
     uid:          'b',
-    
+
     time:         'n'
   };
     
