@@ -20,16 +20,28 @@ h1 {
 
 a {
     text-decoration: none; /* Remove underline */
-    color: #0066cc; /* Basic blue link color */
+    color: #000000; /* Basic blue link color */
     font-size: 1em;
-    padding: 10px 20px; /* Button-like padding */
-    background-color: #ddd; /* Light gray background */
-    border-radius: 3px; /* Slight rounding */
-    margin: 10px; /* Space between links */
-    display: inline-block; /* Treat links like buttons */
+    padding: 8px 15px; /* Minimal padding */
+    background-color: #ddd; /* Light gray background for buttons */
+    border-radius: 3px; /* Very slight rounding */
 }
 
+
 a:hover {
+    background-color: #ccc; /* Slightly darker gray on hover */
+}
+
+.login {
+    text-decoration: none; /* Remove underline */
+    color: #000000; /* Basic blue link color */
+    font-size: 1em;
+    padding: 8px 15px; /* Minimal padding */
+    background-color: #ddd; /* Light gray background for buttons */
+    border-radius: 3px; /* Very slight rounding */
+}
+
+.login:hover {
     background-color: #ccc; /* Slightly darker gray on hover */
 }
 
