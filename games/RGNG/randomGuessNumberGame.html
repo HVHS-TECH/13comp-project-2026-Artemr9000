@@ -3,39 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Guess Number Game</title>
-    
-       <!-- stylesheets *******************************************-->
-  <link rel="stylesheet" href="../../css/WINANDLOSE.css">
-
-     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="../style.css">
-   
-    <!-- mjs or js ***************************************-->
-
-    <script type="module" src="./randomGuessNumberGame.mjs"></script>
-     <script type="module" src="./randomGuessNumberGamePage.mjs"></script>
-     <script type="module" src="../javascript/mainGame.mjs"></script>
-     
-
-    <!-- firebase start ****************************************-->
+    <title>Random Guess Number Game - Lobby</title>
+    <link rel="stylesheet" href="../../css/INTRO.css">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-    <!-- firebase end ******************************************-->
-    
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        #lobbyList {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .game-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 8px 16px;
+            font-size: 15px;
             cursor: pointer;
+            margin: 4px;
+        }
+        #statusMsg {
+            text-align: center;
+            color: #555;
+            margin-top: 10px;
+        }
+        .btn-area {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <h1>Random Guess Number Game</h1>
-     <div class="form">
-        <div id="gameDisplay">Loading games...</div>
-     </div>
-     
-  
+    <p style="text-align:center;">Pick a game to join or make a new one!</p>
+
+    <div id="lobbyList">
+        <p id="statusMsg">Loading games...</p>
+    </div>
+
+    <div class="btn-area">
+        <button id="b_createGame">Create New Game</button>
+        <button onclick="window.location.href='../../html/choseGame.html'">Back</button>
+    </div>
+
+    <script type="module" src="./randomGuessNumberGame.mjs"></script>
 </body>
 </html>
