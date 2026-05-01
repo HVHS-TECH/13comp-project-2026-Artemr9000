@@ -3,7 +3,7 @@
 // Main game logic for randomGuessNumberGame 
 // Written by Artem Rakhimov, Term 1 2026
 /**************************************************************/
-console.log("loaded game.mjs")
+console.log("loaded randomGuessNumberGame.mjs")
 /**************************************************************/
 // Imports from firebase
 /**************************************************************/
@@ -31,4 +31,9 @@ const displayName = sessionStorage.getItem("displayName");
 const photo = sessionStorage.getItem("photo");     
 //uid of the user 
 const uid = sessionStorage.getItem("uid");     
+
+/**************************************************************/
+// Game Logic
+/**************************************************************/
+
 
