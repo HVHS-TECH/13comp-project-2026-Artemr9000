@@ -43,9 +43,7 @@ const auth = getAuth(app);
 /**************************************************************/
 let myUid = null;
 let myGameName = 'Player';
-// NOTE: wrong key name here - should be rgngActiveKey not rgngKey
-const gameId = sessionStorage.getItem('rgngKey');
-console.log('TEST gameId from sessionStorage:', gameId);
+const gameId = sessionStorage.getItem('rgngActiveKey');
 
 /**************************************************************/
 // setup()
