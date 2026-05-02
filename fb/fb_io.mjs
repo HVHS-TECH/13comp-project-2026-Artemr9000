@@ -389,7 +389,6 @@ export async function fb_saveScore(gameMode, score) {
             timestamp: Date.now()
         });
         console.log(`Score saved for ${userDetails.gameName}: ${score}`);
-        debugger
         console.log(userDetails)
     } catch (error) {
         console.error('Error saving score:', error);

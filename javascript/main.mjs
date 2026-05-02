@@ -11,7 +11,7 @@ console.log('%c main.mjs', 'color: blue; background-color: white;');
 /**************************************************************/
 // Imports from fb_io.mjs
 /**************************************************************/
-import { fb_initialise, fb_login, fb_onAuthStateChanged, fb_logout, fb_write, fb_read, fb_readall, fb_updatedata, fb_register, fb_adminLogin, userDetails, admin, fb_checkAdminStatus, fb_grantAdminStatus } 
+import { fb_initialise, fb_login, fb_onAuthStateChanged, fb_logout, fb_write, fb_read, fb_readall, fb_updatedata, fb_register, fb_adminLogin, userDetails, admin, fb_checkAdminStatus }
 from '../fb/fb_io.mjs';
 
 /**************************************************************/
@@ -42,7 +42,6 @@ function setup() {
     // Initialize Firebase
     fb_initialise();
     fb_onAuthStateChanged();
-    fb_grantAdminStatus('CZw4IostEMbIVL9V4Iupd7vRc2j1');
    
     // Check auth state on specific pages
     const currentPage = window.location.pathname;
