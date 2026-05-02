@@ -371,10 +371,13 @@ function ad_processSIReadAll(_result, _path, _snapshot, _save, _error) {
 
         // ENSURE THE FIELDS YOU PUSH INTO THE ARRAY OF OBJECTS         //<=======
         //  MATCH YOUR FIREBASE RECORDS FOR THE PATH                    //<=======
-        ad_adminArray.push({     
+        // rgng is 2 player now so we track wins + losses + score
+        ad_adminArray.push({
           uid:      childKey,
           gameName: childData.gameName,
-          time:     childData.time
+          wins:     childData.wins,
+          losses:   childData.losses,
+          score:    childData.score
         });
       });
     }
