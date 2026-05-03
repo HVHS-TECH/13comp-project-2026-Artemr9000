@@ -116,7 +116,6 @@ function rgng_renderLobby(_games) {
     // snapshot is null = lobby is empty rn, just show the "no games" msg
     if (!_games) {
         statusMsg.textContent = 'No games waiting right now. Create one!';
-        listDiv.appendChild(statusMsg);
         return;
     }
 
@@ -157,7 +156,6 @@ function rgng_renderLobby(_games) {
 
     if (gameCount === 0) {
         statusMsg.textContent = 'No games waiting right now. Create one!';
-        listDiv.appendChild(statusMsg);
     }
 }
 
