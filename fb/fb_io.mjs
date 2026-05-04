@@ -26,8 +26,9 @@ export let userDetails = {
   uid: 'n/a',
   gameName: 'n/a',
   age: 0,
-  contry: 'n/a'
-  
+  contry: 'n/a',
+  phone: 'n/a',
+  address: 'n/a'
 };
 export let admin = {
   uid: 'n/a',
@@ -126,8 +127,10 @@ export function fb_onAuthStateChanged(callbackFn) {
             userDetails.photo = user.photoURL || 'n/a';
             userDetails.uid = user.uid || 'n/a';
             userDetails.gameName = user.gameName  || 'n/a';
-            userDetails.age = user.age  || 'n/a'; 
-             userDetails.contry = user.contry  || 'n/a'; 
+            userDetails.age = user.age  || 'n/a';
+             userDetails.contry = user.contry  || 'n/a';
+            userDetails.phone = user.phone || 'n/a';
+            userDetails.address = user.address || 'n/a';
             fb_read();
             sessionStorage.setItem('uid', userDetails.uid);
             console.log('Auth state: Logged in', userDetails);
@@ -135,7 +138,7 @@ export function fb_onAuthStateChanged(callbackFn) {
                 callbackFn(userDetails.uid);
             }
         } else {
-            userDetails = { displayName: 'n/a', email: 'n/a', photo: 'n/a', uid: 'n/a', gameName: 'n/a', age: 0,  contry: 'n/a'};
+            userDetails = { displayName: 'n/a', email: 'n/a', photo: 'n/a', uid: 'n/a', gameName: 'n/a', age: 0, contry: 'n/a', phone: 'n/a', address: 'n/a'};
             admin = { uid: 'n/a', isAdmin: false };
             sessionStorage.removeItem('uid');
             sessionStorage.removeItem('admin');
@@ -159,7 +162,7 @@ export function fb_logout() {
     const AUTH = getAuth();
     signOut(AUTH)
         .then(() => {
-            userDetails = { displayName: 'n/a', email: 'n/a', photo: 'n/a', uid: 'n/a', gameName: 'n/a', age: 0, contry: 'n/a'};
+            userDetails = { displayName: 'n/a', email: 'n/a', photo: 'n/a', uid: 'n/a', gameName: 'n/a', age: 0, contry: 'n/a', phone: 'n/a', address: 'n/a'};
             admin = { uid: 'n/a', isAdmin: false };
             sessionStorage.removeItem('uid');
             sessionStorage.removeItem('admin');
@@ -269,17 +272,21 @@ export function fb_updatedata(updates) {
 
 /**************************************************************/
 // fb_ register()
-// Registers a new user with game name and age
-// Input:  gName (string), age (number)
+// Registers a new user in the database with game name, age, country, phone and address
+// Called by main.mjs when the register form is submitted
+// Input:  gName (string), age (number), contry (string), phone (string), address (string)
 // Return: Promise
 /**************************************************************/
-export function fb_register(gName, age, contry) {
+export function fb_register(gName, age, contry, phone, address) {
     console.log('%c fb_register(): ', `color: ${FB_COL_C}; background-color: ${FB_COL_B}`);
     const path = `userDetails/${userDetails.uid}`;
     const dbRef = ref(fb_gamedb, path);
     userDetails.gameName = gName;
     userDetails.age = parseInt(age);
     userDetails.contry = contry;
+    userDetails.phone = phone;
+    // low key forgot to add address at first, adding now
+    userDetails.address = address;
     return set(dbRef, userDetails)
         .then(() => {
             console.log('User registered:', userDetails);
@@ -382,7 +389,6 @@ export async function fb_saveScore(gameMode, score) {
             timestamp: Date.now()
         });
         console.log(`Score saved for ${userDetails.gameName}: ${score}`);
-        debugger
         console.log(userDetails)
     } catch (error) {
         console.error('Error saving score:', error);

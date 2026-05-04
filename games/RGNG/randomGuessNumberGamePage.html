@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Guess Number Game</title>
+    <link rel="stylesheet" href="../../css/INTRO.css">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        #gameStatus {
+            font-size: 1.4em;
+            margin: 16px 0;
+        }
+        #hintMsg {
+            font-size: 1.1em;
+            color: #c0392b;
+            min-height: 28px;
+            margin: 10px 0;
+        }
+        #guessArea {
+            margin: 20px auto;
+        }
+        #guessInput {
+            font-size: 1.2em;
+            padding: 6px 10px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 8px 18px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 6px;
+        }
+        #winBanner {
+            display: none;
+            font-size: 1.6em;
+            color: green;
+            margin: 20px 0;
+        }
+        #opponentInfo {
+            color: #555;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Guess Number Game</h1>
+    <p id="opponentInfo">Finding opponent...</p>
+    <p id="gameStatus">Loading...</p>
+    <p id="hintMsg"></p>
+
+    <div id="guessArea" style="display:none;">
+        <input type="number" id="guessInput" min="1" max="100" placeholder="1-100">
+        <br>
+        <button id="b_submitGuess">Submit Guess</button>
+    </div>
+
+    <div id="winBanner"></div>
+
+    <button id="b_backLobby" style="display:none;" onclick="window.location.href='./randomGuessNumberGame.html'">Back to Lobby</button>
+
+    <script type="module" src="./randomGuessNumberGamePage.mjs"></script>
+</body>
+</html>

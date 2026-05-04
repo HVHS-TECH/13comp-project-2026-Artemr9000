@@ -11,7 +11,7 @@ console.log('%c main.mjs', 'color: blue; background-color: white;');
 /**************************************************************/
 // Imports from fb_io.mjs
 /**************************************************************/
-import { fb_initialise, fb_login, fb_onAuthStateChanged, fb_logout, fb_write, fb_read, fb_readall, fb_updatedata, fb_register, fb_adminLogin, userDetails, admin, fb_checkAdminStatus, fb_grantAdminStatus } 
+import { fb_initialise, fb_login, fb_onAuthStateChanged, fb_logout, fb_write, fb_read, fb_readall, fb_updatedata, fb_register, fb_adminLogin, userDetails, admin, fb_checkAdminStatus }
 from '../fb/fb_io.mjs';
 
 /**************************************************************/
@@ -42,7 +42,6 @@ function setup() {
     // Initialize Firebase
     fb_initialise();
     fb_onAuthStateChanged();
-    fb_grantAdminStatus('CZw4IostEMbIVL9V4Iupd7vRc2j1');
    
     // Check auth state on specific pages
     const currentPage = window.location.pathname;
@@ -84,16 +83,20 @@ function setup() {
             const gameName = document.getElementById('gName').value.trim();
             const age = parseInt(document.getElementById('age').value);
             const contry = document.getElementById('contry').value.trim();
-            
-            // Validate inputs
-            if (!gameName || isNaN(age) || age < 5 || !contry) {
-                document.getElementById('errorMessage').textContent = 'Please enter a valid game name and age.';
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+
+            // Validate inputs - making sure nothing is blank or weird
+            // phone needs to be only numbers, 9 to 12 digits (NZ format)
+            const phoneValid = /^[0-9]{9,12}$/.test(phone);
+            if (!gameName || isNaN(age) || age < 5 || age > 120 || !contry || !phoneValid || address.length < 5) {
+                document.getElementById('errorMessage').textContent = 'Check all fields - phone must be 9-12 digits, address min 5 chars.';
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
 
             // Update userDetails and write to Firebase
-            fb_register(gameName, age, contry)
+            fb_register(gameName, age, contry, phone, address)
                 .then(() => window.location.href = '../html/mainMenu.html')
                 .catch((error) => {
                     document.getElementById('errorMessage').textContent = `Error: ${error.message}`;
