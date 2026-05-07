@@ -1,11 +1,11 @@
-/* /css/LEVELSELECT.css */
+/* levelselect.css */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif; /* Simple font */
-    background-color: #f0f0f0; /* Plain light gray background */
+    font-family: Arial, sans-serif; /* Simple, clean font */
+    background-color: #ffffff; /* Plain light gray background */
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column; /* Stack everything vertically */
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
     min-height: 100vh; /* Full viewport height */
@@ -13,9 +13,21 @@ body {
 }
 
 h1 {
-    color: #333; /* Dark gray for heading */
-    font-size: 2em; /* Simple heading size */
+    color: #333; /* Dark gray for the heading */
+    font-size: 2em; /* Slightly smaller heading */
     margin-bottom: 20px;
+}
+
+.description {
+    color: #666; /* Medium gray for the description */
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Smaller gap between links */
 }
 
 a {
@@ -29,7 +41,6 @@ a {
 
 a:hover {
     background-color: #ccc; /* Slightly darker gray on hover */
-
 }
 
 .login {
