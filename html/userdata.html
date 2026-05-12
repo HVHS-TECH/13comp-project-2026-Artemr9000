@@ -4,36 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
- 
-    <link rel="stylesheet" href="../css/INTRO.css">
-     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-  
-     
-    <!-- firebase start ****************************************-->
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-    <!-- firebase end ******************************************-->
-    <style>
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Game</title>
+    <link rel="stylesheet" href="../css/INTRO.css"> <!-- Link to the external CSS -->
 </head>
 <body>
-    <h1>welcome to terms and condtions</h1>
-    <p>im going to use you display name, email, photo, country and uid if you agree press the button bellow</p>
-          <div class="column">
-             
-                
-            </div>
-
-           <a href="../index.html">I agree</a>
-           <a href="https://www.youtube.com/watch?v=IZGlY3jcnWg">I disagree</a>
-      <!-- Your JS files & main module ***************************-->
-    <script type="module" src="../javascript/main.mjs"></script>
-  
-    
+    <div class="container">
+        <h1>welcome to terms and condtions</h1>
+        <p class="description">By agreeing to these terms and conditions, you consent to the collection and use of your personal information as described.</p>
+          <p class="description">im going to use you display name, email, photo, country and uid if you agree press the button bellow</p>
+        <!-- Links placed inside a div with the 'links' class -->
+        <div class="links">
+           <a id="darkerbackground" href="../index.html">I agree</a>
+           <a id="darkerbackground" href="https://www.youtube.com/watch?v=IZGlY3jcnWg">I disagree</a>
+        </div>
+    </div>
+        <script type="module" src="../javascript/main.mjs"></script>
+      
 </body>
 </html>
