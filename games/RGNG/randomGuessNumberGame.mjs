@@ -232,18 +232,26 @@ async function rgng_joinGame(_key, _game) {
     // write the active game record
     const activeRef = ref(database, `rgngActive/${_key}`);
     await set(activeRef, {
-        player1Uid:   _game.player1Uid,
-        player1Name:  _game.player1Name,
-        player2Uid:   myUid,
-        player2Name:  myGameName,
-        targetNumber: targetNumber,
-        currentTurn:  _game.player1Uid,  // player 1 guesses first
-        lastGuess:    null,
-        lastHint:     null,
-        status:       'active',
-        winnerUid:    null,
-        startedAt:    Date.now(),
-        lastUpdated:  Date.now()
+        player1Uid:         _game.player1Uid,
+        player1Name:        _game.player1Name,
+        player2Uid:         myUid,
+        player2Name:        myGameName,
+        targetNumber:       targetNumber,
+        currentTurn:        _game.player1Uid,  // player 1 guesses first
+        lastGuess:          null,
+        lastHint:           null,
+        // guessCount tracks how many total guesses have been made this game
+        // — both players combined. starts at zero obviously
+        guessCount:         0,
+        status:             'active',
+        winnerUid:          null,
+        // rematchRequestedBy is null until someone clicks Rematch after the game ends
+        rematchRequestedBy: null,
+        // scoredFor tracks which players have already had their win/loss saved
+        // so we don't double-count if they refresh the page on the result screen
+        scoredFor:          null,
+        startedAt:          Date.now(),
+        lastUpdated:        Date.now()
     });
 
     // low key need to delete the lobby entry once p2 joins so no one else tries to jump in

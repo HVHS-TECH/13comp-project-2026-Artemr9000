@@ -48,6 +48,19 @@
             color: #555;
             margin-bottom: 10px;
         }
+        #guessCount {
+            font-size: 1em;
+            color: #777;
+            margin: 6px 0;
+        }
+        #rematchPanel {
+            margin: 14px 0;
+        }
+        #rematchStatus {
+            font-size: 0.95em;
+            color: #888;
+            margin: 4px 0;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +68,7 @@
     <p id="opponentInfo">Finding opponent...</p>
     <p id="gameStatus">Loading...</p>
     <p id="hintMsg"></p>
+    <p id="guessCount">Guesses so far: 0</p>
 
     <div id="guessArea" style="display:none;">
         <input type="number" id="guessInput" min="1" max="100" placeholder="1-100">
@@ -63,6 +77,11 @@
     </div>
 
     <div id="winBanner"></div>
+
+    <div id="rematchPanel" style="display:none;">
+        <button id="b_rematch">Rematch</button>
+        <p id="rematchStatus"></p>
+    </div>
 
     <button id="b_backLobby" style="display:none;" onclick="window.location.href='./randomGuessNumberGame.html'">Back to Lobby</button>
 
