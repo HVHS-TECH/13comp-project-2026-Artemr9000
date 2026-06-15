@@ -13,11 +13,14 @@
 // v2 - added rematch, guess counter, fixed loss saving
 /**************************************************************/
 
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { initializeApp } 
+    from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getDatabase, ref, get, set, update, onValue, onDisconnect }
     from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
 import { getAuth, onAuthStateChanged }
     from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+import { fb_initialise, fb_saveScore, userDetails, fb_onAuthStateChanged } 
+    from '../../fb/fb_io.mjs';
 
 /**************************************************************/
 // Constants
