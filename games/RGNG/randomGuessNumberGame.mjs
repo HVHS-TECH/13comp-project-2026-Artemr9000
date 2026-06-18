@@ -44,7 +44,7 @@ const auth = getAuth(app);
 // Module-level state
 /**************************************************************/
 let myUid = sessionStorage.getItem('uid');
-let myGameName = sessionStorage.getItem('gameName') || 'Player';
+let myGameName = userDetails.gameName || 'Player';
 let myLobbyKey = null;    // set if we are player 1 waiting in lobby
 let lobbyUnsubscribe = null;  // holds the onValue unsubscribe fn
 

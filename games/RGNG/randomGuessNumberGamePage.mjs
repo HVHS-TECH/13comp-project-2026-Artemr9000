@@ -47,7 +47,7 @@ const auth = getAuth(app);
 // Module-level state
 /**************************************************************/
 let myUid = null;
-let myGameName = 'Player';
+let myGameName = userDetails.gameName || 'Player';
 const gameId = sessionStorage.getItem('rgngActiveKey');
 
 /**************************************************************/
