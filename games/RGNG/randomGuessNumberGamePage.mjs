@@ -71,7 +71,7 @@ function setup() {
             return;
         }
         myUid = user.uid;
-        myGameName = sessionStorage.getItem('gameName') || user.displayName || 'Player';
+        myGameName = sessionStorage.getItem('gameName') || user.gameName|| 'Player';
 
         rgng_subscribeGame();
         rgng_setupDisconnect();
