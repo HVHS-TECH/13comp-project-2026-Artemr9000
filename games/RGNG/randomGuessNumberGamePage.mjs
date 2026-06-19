@@ -42,7 +42,7 @@ const FB_GAMECONFIG = {
 const app = initializeApp(FB_GAMECONFIG);
 const database = getDatabase(app);
 const auth = getAuth(app);
-fb_onAuthStateChanged;
+fb_onAuthStateChanged();
 /**************************************************************/
 // Module-level state
 /**************************************************************/
