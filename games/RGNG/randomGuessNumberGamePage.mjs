@@ -47,7 +47,7 @@ fb_onAuthStateChanged();
 // Module-level state
 /**************************************************************/
 let myUid = null;
-let myGameName = userDetails.gameName || 'Player';
+let myGameName = sessionStorage.getItem('gameName') || 'Player';
 const gameId = sessionStorage.getItem('rgngActiveKey');
 
 /**************************************************************/
@@ -71,7 +71,7 @@ function setup() {
             return;
         }
         myUid = user.uid;
-        myGameName = userDetails.gameName || user.displayName || 'Player';
+        myGameName = sessionStorage.getItem('gameName') || user.displayName || 'Player';
 
         rgng_subscribeGame();
         rgng_setupDisconnect();

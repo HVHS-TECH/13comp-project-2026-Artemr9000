@@ -44,7 +44,7 @@ fb_onAuthStateChanged();
 // Module-level state
 /**************************************************************/
 let myUid = sessionStorage.getItem('uid');
-let myGameName = userDetails.gameName || 'Player';
+let myGameName = sessionStorage.getItem('gameName') || 'Player';
 let myLobbyKey = null;    // set if we are player 1 waiting in lobby
 let lobbyUnsubscribe = null;  // holds the onValue unsubscribe fn
 
@@ -65,7 +65,7 @@ function setup() {
             return;
         }
         myUid = user.uid;
-        myGameName = userDetails.gameName|| user.displayName || 'Player';
+        myGameName = sessionStorage.getItem('gameName')|| user.displayName || 'Player';
 
         rgng_subscribeLobby();
     });
