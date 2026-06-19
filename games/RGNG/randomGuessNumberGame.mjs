@@ -65,7 +65,7 @@ function setup() {
             return;
         }
         myUid = user.uid;
-        myGameName = sessionStorage.getItem('gameName') || user.displayName || 'Player';
+        myGameName = userDetails.gameName|| user.displayName || 'Player';
 
         rgng_subscribeLobby();
     });
