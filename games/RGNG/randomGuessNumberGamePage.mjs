@@ -19,8 +19,7 @@ import { getDatabase, ref, get, set, update, onValue, onDisconnect }
     from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
 import { getAuth, onAuthStateChanged }
     from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
-import { fb_initialise, fb_saveScore, userDetails, fb_onAuthStateChanged } 
-    from '../../fb/fb_io.mjs';
+
 
 /**************************************************************/
 // Constants
@@ -42,7 +41,6 @@ const FB_GAMECONFIG = {
 const app = initializeApp(FB_GAMECONFIG);
 const database = getDatabase(app);
 const auth = getAuth(app);
-fb_onAuthStateChanged();
 /**************************************************************/
 // Module-level state
 /**************************************************************/
@@ -71,7 +69,17 @@ function setup() {
             return;
         }
         myUid = user.uid;
-        myGameName = sessionStorage.getItem('gameName') || user.gameName|| 'Player';
+        const userPath = `userDetails/${myUid}`;
+                const userRef = ref(database, userPath);
+                    get(userRef).then((snapshot) => {
+                        if (snapshot.exists()) {
+                         myGameName = snapshot.val().gameName;
+                         if(!myGameName){
+                            myGameName = sessionStorage.getItem('gameName')|| 'Player';
+                     
+                         }
+                        }
+                    });
 
         rgng_subscribeGame();
         rgng_setupDisconnect();
