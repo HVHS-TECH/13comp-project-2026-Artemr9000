@@ -85,3 +85,4 @@ function setup() {
 }
 
 window.onload = setup;
+window.onload = fb_checkAdminStatus;
