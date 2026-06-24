@@ -62,6 +62,7 @@ function setup() {
             window.location.href = '../../index.html';
             return;
         }
+        // find the name for the gameName to use
         console.log(user, user.gameName);
         myUid = user.uid;
         const userPath = `userDetails/${myUid}`;

@@ -68,6 +68,7 @@ function setup() {
             window.location.href = '../../index.html';
             return;
         }
+        // find the name for the gameName to use  
         myUid = user.uid;
         const userPath = `userDetails/${myUid}`;
                 const userRef = ref(database, userPath);
