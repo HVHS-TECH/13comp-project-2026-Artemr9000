@@ -93,9 +93,8 @@
             <tr>
                 <th>Rank</th>
                 <th>Name</th>
-                <th>Score</th>
                 <th>wins</th>
-                <th>losses</th>                
+                               
                 
                 
                 
@@ -133,9 +132,7 @@
                     row.innerHTML = `
                         <td>${index + 1}</td>
                         <td>${score.gameName || 'Anonymous'}</td>
-                        <td>${score.score}</td>
                         <td>${score.wins}</td>
-                        <td>${score.losses}</td>
                         
                     `;
                     leaderboardBody.appendChild(row);
